@@ -1,0 +1,33 @@
+.container{
+    /* margin-top: 50px; */
+    /* border: 2px solid black; */
+    height: 90vh;
+}
+.row{
+    height: 90vh;
+}
+
+.top{
+    background-color: #000000;
+    height: 50px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+}
+
+.bottom{
+    background-color: #000000a8;
+    height: 120px;
+    font-size: 35px;
+}
+
+
+
+.box{
+    color: white;
+    text-decoration: none;
+}
+
+.box:hover{
+    color: white;
+}
+

@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% block title %}Ground Registration {% endblock title %}
+{% block customcss %}./static/ground-registration.css{% endblock customcss %}
+
+{% block body %}
+
+<div class="container mt-5 p-5">
+  <div class="row justify-content-center">
+    <div class="col-4 border border-dark p-3">
+      <form action="/dashboard" method="post">
+        <h1 class="text-center pb-3">Register your Ground</h1>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Name of Ground</label>
+          <input type="text" class="form-control form-control-sm" id="exampleFormControlInput1"
+            placeholder="Name of Ground">
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">City</label>
+          <select class="form-select form-select-sm city_input" aria-label=".form-select-sm example" id="select_city"
+            onchange="set_city();">
+            <option>--Select--</option>
+
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Area</label>
+          <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="select_area"
+            onchange="set_area();">
+            <option>--Select--</option>
+
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Select Sport</label>
+          <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="select_sport">
+            <option>--Select--</option>
+
+          </select>
+        </div>
+
+        <label class="mb-2">Select time for Booking Ground</label>
+        <div class="container mb-3">
+          <div class="row">
+            <div class="col-6 d-flex justify-content-around">
+              <label>From: </label>
+              <input type="time" class="form-control-sm" id="exampleFormControlInput1" placeholder="Name of Ground">
+            </div>
+            <div class="col-6 d-flex justify-content-around">
+              <label>To: </label>
+              <input type="time" class="form-control-sm" id="exampleFormControlInput1" placeholder="Name of Ground">
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Phone</label>
+          <input type="number" class="form-control form-control-sm" id="exampleFormControlInput1" placeholder="Phone">
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Rates (per hour in Rs.)</label>
+          <input type="text" class="form-control form-control-sm" id="exampleFormControlInput1" placeholder="Rates">
+        </div>
+
+
+
+        <div class="text-center mt-4">
+          <button type="submit" class="btn btn-primary login-button">Register</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<script>
+  // Handling Django variables here 
+  let json_data = '{{d}}';
+  json_data = json_data.replace(/&quot;/g, '"');
+  const json_obj = JSON.parse(json_data);
+  console.log(json_obj);
+</script>
+
+
+{% endblock body %}
+
+
+
+
+{% block script %}
+'./static/ground-registration.js'
+{% endblock script %}
