@@ -1,5 +1,3 @@
-
-
 select_city = "<option value='--Select--'>--Select--</option>";
 let i = 0;
 for (i = 0; i < json_obj['city'].length; i++) {

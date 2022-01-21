@@ -8,12 +8,55 @@
     <div class="row justify-content-evenly align-items-center">
         <a class="box col-4 text-center p-0" href="">
             <div class="top d-flex justify-content-evenly align-items-center">See no. of Bookings</div>
-            <div class="bottom d-flex justify-content-evenly align-items-center"><p>5</p></div>
+            <div class="bottom d-flex justify-content-evenly align-items-center">
+                <p>5</p>
+            </div>
         </a>
-        <a class="box col-4 text-center p-0" href="">
-            <div class="top align-items-center d-flex justify-content-evenly align-items-center">Register your Ground</div>
-            <div class="bottom align-items-center d-flex justify-content-evenly align-items-center"><p>3</p></div>
+        <a class="box col-4 text-center p-0" href="/ground-registration">
+            <div class="top align-items-center d-flex justify-content-evenly align-items-center">Register your Ground
+            </div>
+            <div class="bottom align-items-center d-flex justify-content-evenly align-items-center">
+                <p>{{grounds_count}}</p>
+            </div>
         </a>
+    </div>
+
+    <div class="container ground-container">
+        <h1 class="text-center">Grounds Registered</h1>
+        <!-- table  -->
+        <table class="table" id="myTable">
+            <thead>
+                <tr>
+                    <th scope="col">Ground ID</th>
+                    <th scope="col">Ground Name</th>
+                    <th scope="col">City</th>
+                    <th scope="col">Area</th>
+                    <th scope="col">Sport</th>
+                    <th scope="col">From Time</th>
+                    <th scope="col">To Time</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Rates</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for ground in grounds_registered %}
+                <tr>
+                    <th scope="row-{{ground.ground_id}}">{{ground.ground_id}}</th>
+                    <td>{{ground.ground_name}}</td>
+                    <td>{{ground.city}}</td>
+                    <td>{{ground.area}}</td>
+                    <td>{{ground.sport_name}}</td>
+                    <td>{{ground.from_time}}</td>
+                    <td>{{ground.to_time}}</td>
+                    <td>{{ground.phone}}</td>
+                    <td>Rs. {{ground.rates}}</td>
+                </tr>
+                {% endfor %}
+                
+                
+            </tbody>
+        </table>
     </div>
 </div>
 

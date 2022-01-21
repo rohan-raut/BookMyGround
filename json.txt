@@ -1,0 +1,25 @@
+{
+	Cities:[]
+	Areas:[]
+	Sport:[]
+	SportsComplex:[]
+
+}
+
+
+
+
+'Pune': {'areas': ['Vishrantwadi', 'Dhanori', 'Viman Nagar', 'Yerwada'], 
+'Vishrantwadi': {'sports': [], 'sports_complex': []}, 
+'Dhanori': {'sports': ['Football (6 v 6)', 'Football (9 v 9)', 'Football (11 v 11)', 'Badminton'], 'sports_complex': ['Jagadguru Sports Complex', 'Jagadguru Sports Complex', 'Jagadguru Sports Complex', 'Jagadguru Sports Complex']}, 
+'Viman Nagar': {'sports': [], 'sports_complex': []}, 
+'Yerwada': {'sports': ['Cricket', 'Badminton'], 'sports_complex': ['Vibhagiya Krida Sankul', 'Vibhagiya Krida Sankul']}, 
+'sports': ['Football (6 v 6)', 'Football (9 v 9)', 'Football (11 v 11)', 'Badminton', 'Cricket'], 
+'sports_complex': ['Jagadguru Sports Complex', 'Vibhagiya Krida Sankul'], 
+'Jagadguru Sports Complex': ['Football (6 v 6)', 'Football (9 v 9)', 'Football (11 v 11)', 'Badminton'], 
+'Vibhagiya Krida Sankul': ['Badminton', 'Cricket'], 
+'Football (6 v 6)': ['Jagadguru Sports Complex'], 
+'Football (9 v 9)': ['Jagadguru Sports Complex'], 
+'Football (11 v 11)': ['Jagadguru Sports Complex'], 
+'Badminton': ['Jagadguru Sports Complex', 'Vibhagiya Krida Sankul'], 
+'Cricket': ['Vibhagiya Krida Sankul']}

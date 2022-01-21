@@ -3,7 +3,12 @@
 
 {% block body %}
 
-<h1>Hello, {{request.user}}! Book Your Ground Now.</h1>
+
+{% if request.user.is_staff %}
+  <h1>Hello, {{request.user.first_name}}! Take Your Ground Online</h1>
+{% else %}
+  <h1>Hello, {{request.user.first_name}}! Book your Ground</h1>
+{% endif %}
 <!-- <a href="/logout">Logout</a> -->
 
 

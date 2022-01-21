@@ -1,10 +1,14 @@
 .container{
     /* margin-top: 50px; */
     /* border: 2px solid black; */
-    height: 90vh;
+    height: 50vh;
 }
 .row{
-    height: 90vh;
+    height: 50vh;
+}
+
+.ground-container{
+    height: 65vh;
 }
 
 .top{

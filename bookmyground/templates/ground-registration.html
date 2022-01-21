@@ -7,18 +7,19 @@
 <div class="container mt-5 p-5">
   <div class="row justify-content-center">
     <div class="col-4 border border-dark p-3">
-      <form action="/dashboard" method="post">
+      <form action="/ground-registration" method="post">
+        {% csrf_token %}
         <h1 class="text-center pb-3">Register your Ground</h1>
         <div class="mb-3">
           <label for="exampleFormControlInput1" class="form-label">Name of Ground</label>
           <input type="text" class="form-control form-control-sm" id="exampleFormControlInput1"
-            placeholder="Name of Ground">
+            placeholder="Name of Ground" name="name_of_ground">
         </div>
 
         <div class="mb-3">
           <label for="exampleFormControlInput1" class="form-label">City</label>
           <select class="form-select form-select-sm city_input" aria-label=".form-select-sm example" id="select_city"
-            onchange="set_city();">
+            onchange="set_city();" name="city">
             <option>--Select--</option>
 
           </select>
@@ -27,7 +28,7 @@
         <div class="mb-3">
           <label for="exampleFormControlInput1" class="form-label">Area</label>
           <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="select_area"
-            onchange="set_area();">
+            onchange="set_area();" name="area">
             <option>--Select--</option>
 
           </select>
@@ -35,7 +36,7 @@
 
         <div class="mb-3">
           <label for="exampleFormControlInput1" class="form-label">Select Sport</label>
-          <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="select_sport">
+          <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="select_sport" name="select_sport">
             <option>--Select--</option>
 
           </select>
@@ -46,23 +47,23 @@
           <div class="row">
             <div class="col-6 d-flex justify-content-around">
               <label>From: </label>
-              <input type="time" class="form-control-sm" id="exampleFormControlInput1" placeholder="Name of Ground">
+              <input type="time" class="form-control-sm" id="exampleFormControlInput1" placeholder="Name of Ground" name="from_time">
             </div>
             <div class="col-6 d-flex justify-content-around">
               <label>To: </label>
-              <input type="time" class="form-control-sm" id="exampleFormControlInput1" placeholder="Name of Ground">
+              <input type="time" class="form-control-sm" id="exampleFormControlInput1" placeholder="Name of Ground" name="to_time">
             </div>
           </div>
         </div>
 
         <div class="mb-3">
           <label for="exampleFormControlInput1" class="form-label">Phone</label>
-          <input type="number" class="form-control form-control-sm" id="exampleFormControlInput1" placeholder="Phone">
+          <input type="number" class="form-control form-control-sm" id="exampleFormControlInput1" placeholder="Phone" name="phone">
         </div>
 
         <div class="mb-3">
           <label for="exampleFormControlInput1" class="form-label">Rates (per hour in Rs.)</label>
-          <input type="text" class="form-control form-control-sm" id="exampleFormControlInput1" placeholder="Rates">
+          <input type="text" class="form-control form-control-sm" id="exampleFormControlInput1" placeholder="Rates" name="rates">
         </div>
 
 
