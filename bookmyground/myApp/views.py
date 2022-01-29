@@ -1,3 +1,4 @@
+from typing import Generic
 from django.http import request
 from django.http.response import HttpResponse
 from django.shortcuts import redirect, render, HttpResponse
@@ -6,6 +7,12 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from myApp.models import city_name, area_name, sport_name, ground_registration
 import json
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from . serializers import area_nameSerializer, ground_registrationSerializer, city_nameSerializer, area_nameSerializer, sport_nameSerializer
+from rest_framework import generics
+from django_filters.rest_framework import DjangoFilterBackend
 
 
 
@@ -132,95 +139,7 @@ def ground_registration_func(request):
 
 
 # Booking the Ground to Play
-def booking(request):
-    dic={}
-    cities = city_name.objects.all()
-    areas = area_name.objects.all()
-    sports = sport_name.objects.all()
-    sports_complex = ground_registration.objects.all()
-    dic['cities'] = []
-    dic['areas'] = []
-    dic['sports'] = []
-    dic['sports_complex'] = []
-
-    for city in cities:
-        dic['cities'].append(city.city)
-    
-    for area in areas:
-        dic['areas'].append(area.area)
-    
-    for sport in sports:
-        dic['sports'].append(sport.sport_ground)
-        dic[sport.sport_ground] = []
-
-    # for complex in sports_complex:
-    #     if complex.ground_name not in dic['sports_complex']:
-    #         dic['sports_complex'].append(complex.ground_name)
-    #     dic[complex] = []
-
-    for sport in dic['sports']:
-        sports_name = ground_registration.objects.filter(sport_name=sport)
-        for sport_obj in sports_name:
-            dic[sport].append(sport_obj.ground_name)
-
-    for grounds_name in dic['sports_complex']:
-        sports_ground = ground_registration.objects.filter(ground_name = grounds_name)
-        for sport_ground in sports_ground:
-            dic[sport_ground.ground_name].append(sport_ground.sport_name)
-
-    for city in dic['cities']:
-        dic[city]={}
-        dic[city]['areas'] = []
-        areas_in_city = area_name.objects.filter(city=city)
-        for area in areas_in_city:
-            dic[city]['areas'].append(area.area)
-            dic[city][area.area] = {}
-            dic[city][area.area]['sports'] = []
-            dic[city][area.area]['sports_complex'] = []
-        sports_in_city = ground_registration.objects.filter(city=city)
-        dic[city]['sports'] = []
-        for sport in sports_in_city:
-            if sport.sport_name not in dic[city]['sports']:
-                dic[city]['sports'].append(sport.sport_name)
-        sport_complex = ground_registration.objects.filter(city=city)        
-        dic[city]['sports_complex'] = []
-        for complex in sport_complex:
-            if complex.ground_name not in dic[city]['sports_complex']:
-                dic[city]['sports_complex'].append(complex.ground_name)
-        for complex_name in dic[city]['sports_complex']:
-            dic[city][complex_name] = []
-        for sport in dic[city]['sports']:
-            dic[city][sport]=[]
-            sports_for_complex = ground_registration.objects.filter(city=city, sport_name=sport)
-            for sport_for_complex in sports_for_complex:
-                dic[city][sport].append(sport_for_complex.ground_name)
-                dic[city][sport_for_complex.ground_name].append(sport)
-
-        for city_area in dic[city]['areas']:
-            sports_with_complex = ground_registration.objects.filter(city=city, area=city_area)
-            for sport_with_complex in sports_with_complex:
-                dic[city][city_area]['sports'].append(sport_with_complex.sport_name)
-                if sport_with_complex not in dic[city][city_area]['sports_complex']:
-                    dic[city][city_area]['sports_complex'].append(sport_with_complex.ground_name)
-
-
-
-#########################################################
-        # for area in dic['areas']:
-        #     dic[city][area] = {}
-        #     sport_in_area = ground_registration.objects.filter(area=area)
-        #     dic[city][area]['sports'] = []
-        #     for sport in sport_in_area:
-        #         if sport.sport_name not in dic[city][area]['sports']:
-        #             dic[city][area]['sports'].append(sport.sport_name)
-        #     sport_complex = ground_registration.objects.filter(area=area)
-        #     dic[city][area]['sports_complex'] = []
-        #     for complex in sport_complex:
-        #         if complex.ground_name not in dic[city][area]['sports_complex']:
-        #             dic[city][area]['sports_complex'].append(complex.ground_name)
-    
-    print(dic)
-    
+def booking(request):  
     return render(request, 'booking.html')
 
 
@@ -229,6 +148,29 @@ def my_bookings(request):
     return render(request, 'my-bookings.html')
 
 
+
+
+# API Data 
+
+class GroundListView(generics.ListAPIView):
+    queryset = ground_registration.objects.all()
+    serializer_class = ground_registrationSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['city', 'area', 'sport_name']   
+
+class CityListView(generics.ListAPIView):
+    queryset = city_name.objects.all()
+    serializer_class = city_nameSerializer
+
+class AreaListView(generics.ListAPIView):
+    queryset = area_name.objects.all()
+    serializer_class = area_nameSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['city']
+
+class SportsListView(generics.ListAPIView):
+    queryset = sport_name.objects.all()
+    serializer_class = sport_nameSerializer
 
 
 # SuperUser:

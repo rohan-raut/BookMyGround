@@ -10,6 +10,10 @@ urlpatterns = [
     path("dashboard", views.dashboard, name="dashboard"),
     path("ground-registration", views.ground_registration_func, name="ground-registration"),
     path("booking", views.booking, name="booking"),
-    path("my-bookings", views.my_bookings, name="my-bookings")
+    path("my-bookings", views.my_bookings, name="my-bookings"),
+    path('api/ground-list', views.GroundListView.as_view()),
+    path('api/cities', views.CityListView.as_view()),
+    path('api/areas', views.AreaListView.as_view()),
+    path('api/sports', views.SportsListView.as_view())
 
 ]
