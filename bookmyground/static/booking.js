@@ -56,32 +56,32 @@ function set_sport() {
         });
 }
 
-function filter_data(){
-    let city = document.getElementById("select_city").value;
-    let area = document.getElementById("select_area").value;
-    let sport = document.getElementById("select_sport").value;
-    let url = "http://127.0.0.1:8000/api/ground-list?";
-    if(city != "none"){
-        url = url + "city=" + city + "&";
-    }
-    if(area != "none"){
-        url = url + "area=" + area + "&";
-    }
-    if(sport != "none"){
-        url = url + "sport_name=" + sport + "&";
-    }
-    fetch(url)
-        .then(response => response.text())
-        .then(data => {
-            // let json = JSON.stringify(data);
-            // json = json.replaceAll('\\', '');
-            console.log(data);
-            document.getElementById("display-list").innerHTML = "<p>"+data+"</p>";
-        });
-}
+// function filter_data(){
+//     let city = document.getElementById("select_city").value;
+//     let area = document.getElementById("select_area").value;
+//     let sport = document.getElementById("select_sport").value;
+//     let url = "http://127.0.0.1:8000/api/ground-list?";
+//     if(city != "none"){
+//         url = url + "city=" + city + "&";
+//     }
+//     if(area != "none"){
+//         url = url + "area=" + area + "&";
+//     }
+//     if(sport != "none"){
+//         url = url + "sport_name=" + sport + "&";
+//     }
+//     fetch(url)
+//         .then(response => response.text())
+//         .then(data => {
+//             // let json = JSON.stringify(data);
+//             // json = json.replaceAll('\\', '');
+//             console.log(data);
+//             document.getElementById("display-list").innerHTML = "<p>"+data+"</p>";
+//         });
+// }
 
 set_city();
 set_area();
 set_sport();
-filter_data();
+// filter_data();
 

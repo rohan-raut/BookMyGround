@@ -13,6 +13,7 @@ from rest_framework import status
 from . serializers import area_nameSerializer, ground_registrationSerializer, city_nameSerializer, area_nameSerializer, sport_nameSerializer
 from rest_framework import generics
 from django_filters.rest_framework import DjangoFilterBackend
+import requests
 
 
 
@@ -140,7 +141,23 @@ def ground_registration_func(request):
 
 # Booking the Ground to Play
 def booking(request):  
-    return render(request, 'booking.html')
+    ground_list_api = "http://127.0.0.1:8000/api/ground-list?"
+    if(request.method == "GET"):
+        city = request.GET.get('city')
+        area = request.GET.get('area')
+        sport = request.GET.get('sport')
+        if(city!=None and city!="none"):
+            ground_list_api = ground_list_api + "city="+city+"&"
+        if(area!=None and area!="none"):
+            ground_list_api = ground_list_api + "area="+area+"&"
+        if(sport!=None and sport!="none"):
+            ground_list_api = ground_list_api + "sport_name="+sport+"&"
+
+    response = requests.get(ground_list_api)
+    data = response.text
+    context = {}
+    context['ground_list'] = json.loads(data)
+    return render(request, 'booking.html', context)
 
 
 # See all the booked Grounds by User

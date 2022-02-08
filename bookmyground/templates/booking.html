@@ -5,35 +5,58 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-3 right-sidebar">
+            <form method="get">
+                <div class="mb-3 fields">
+                    <label for="exampleFormControlInput1" class="form-label">City:</label>
+                    <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="select_city"
+                        onchange="set_area();" name="city">
+                        <option value="none">--Select--</option>
+                    </select>
+                </div>
+                <div class="mb-3 fields">
+                    <label for="exampleFormControlInput1" class="form-label">Area:</label>
+                    <select class="form-select form-select-sm area_input" aria-label=".form-select-sm example"
+                        id="select_area" name="area">
+                        <option value="none">--Select--</option>
+                    </select>
+                </div>
+                <div class="mb-3 fields">
+                    <label for="exampleFormControlInput1" class="form-label">Sports:</label>
+                    <select class="form-select form-select-sm area_input" aria-label=".form-select-sm example"
+                        id="select_sport" name="sport">
+                        <option value="none">--Select--</option>
+                    </select>
+                </div>
 
-            <div class="mb-3 fields">
-                <label for="exampleFormControlInput1" class="form-label">City:</label>
-                <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="select_city"
-                    onchange="set_area();" name="city">
-                    <option value="none">--Select--</option>
-                </select>
-            </div>
-            <div class="mb-3 fields">
-                <label for="exampleFormControlInput1" class="form-label">Area:</label>
-                <select class="form-select form-select-sm area_input" aria-label=".form-select-sm example"
-                    id="select_area" name="area">
-                    <option value="none">--Select--</option>
-                </select>
-            </div>
-            <div class="mb-3 fields">
-                <label for="exampleFormControlInput1" class="form-label">Sports:</label>
-                <select class="form-select form-select-sm area_input" aria-label=".form-select-sm example"
-                    id="select_sport" name="set_sport">
-                    <option value="none">--Select--</option>
-                </select>
-            </div>
-
-            <button class="btn btn-sm btn-primary" id="filter" onclick="filter_data()">Search</button>
-
+                <button class="btn btn-sm btn-primary" id="filter">Search</button>
+            </form>
         </div>
-        <div class="col-1"></div>
-        <div class="col-8" id="display-list">
 
+        <div class="col-9" id="display-list">
+            <div class="row my-2">
+                <div class="col-12 list">
+                    {% for i in ground_list %}
+                    <a href="">
+                        <div class="card p-0 border border-primary" style="width: 18rem;">
+                            <img class="card-img-top"
+                                src={{i.ground_image}}
+                                alt="Card image cap">
+                            <div class="card-body">
+                                <h2>{{i.ground_name}} </h2>
+                                <p class="area">({{i.area}})</p>
+                                <p class="card-text">{{i.sport_name}}</p>
+                            </div>
+                        </div>
+                    </a>
+                    {% endfor %}
+                    
+                    
+
+                    
+
+
+                </div>
+            </div>
         </div>
     </div>
 </div>

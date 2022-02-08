@@ -1,0 +1,16 @@
+
+.navbar-brand{
+    color: white;
+    font-family: 'Red Hat Text', sans-serif;
+}
+.navbar-brand:hover{
+    color: white;
+}
+.navbar{
+    border-bottom: 2px solid #581CE1;
+}
+
+body{
+    background-color: #101010;
+    color: white;
+}

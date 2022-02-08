@@ -12,8 +12,49 @@
 
 .fields{
     margin-left: 30px;
+    color: black;
 }
 
 form{
     padding-top: 30px;
+}
+
+.card{
+    padding: 0px;
+    margin: 0px;
+    background-color: #581CE1;
+    font-family: 'Red Hat Text', sans-serif;
+    margin: 20px 40px;
+}
+
+.card-img-top{
+    padding: 5px;
+}
+
+h2{
+    font-size: 18px;
+    margin: 0px;
+    display: inline-block;
+    font-weight: 600;
+}
+
+.area{
+    display: inline-block;
+    font-size: 18px;
+    margin: 0px;
+}
+
+.card-body{
+    padding: 5px 1rem;
+}
+
+a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+.list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
 }

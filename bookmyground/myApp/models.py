@@ -27,6 +27,7 @@ class ground_registration(models.Model):
     to_time = models.TimeField()
     rates = models.IntegerField()
     phone = models.IntegerField()
+    ground_image = models.ImageField(upload_to="myApp/ground_images", default="")
 
 
 class booking(models.Model):
