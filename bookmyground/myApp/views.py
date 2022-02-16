@@ -160,6 +160,15 @@ def booking(request):
     return render(request, 'booking.html', context)
 
 
+def ground_detail(request, pk):
+    api = "http://127.0.0.1:8000/api/ground-list?ground_id="+pk
+    response = requests.get(api)
+    data = response.text
+    context = {}
+    context['ground_detail'] = json.loads(data)[0]
+    print(context)
+    return render(request, 'ground_detail.html', context)
+
 # See all the booked Grounds by User
 def my_bookings(request):
     return render(request, 'my-bookings.html')
@@ -173,7 +182,7 @@ class GroundListView(generics.ListAPIView):
     queryset = ground_registration.objects.all()
     serializer_class = ground_registrationSerializer
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['city', 'area', 'sport_name']   
+    filterset_fields = ['city', 'area', 'sport_name', 'ground_id']   
 
 class CityListView(generics.ListAPIView):
     queryset = city_name.objects.all()
