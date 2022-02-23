@@ -1,6 +1,21 @@
 {% extends 'base.html' %}
+{% block customcss %}../static/ground_detail.css{% endblock customcss %}
+
 {% block body %}
-<div>Name: {{ground_detail.ground_name}}</div>
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-8 bg-danger">
+            <img src="{{ground_detail.ground_image}}" alt="" width="100%">
+            <h1>{{ground_detail.ground_name}}</h1>
+            <form>
+                <input type="date" name="date" id="">
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
 
 
 {% endblock body %}

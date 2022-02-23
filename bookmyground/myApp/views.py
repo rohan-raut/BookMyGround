@@ -14,6 +14,18 @@ from . serializers import area_nameSerializer, ground_registrationSerializer, ci
 from rest_framework import generics
 from django_filters.rest_framework import DjangoFilterBackend
 import requests
+import pandas as pd
+
+
+# global variables 
+global hostname
+global port
+
+#reading config file & defining global variables
+df = pd.read_csv("./config.csv")
+hostname = df[df["parameter"]=="hostname"].iloc[0,1]
+port = df[df["parameter"]=="port"].iloc[0,1]
+
 
 
 
@@ -141,7 +153,7 @@ def ground_registration_func(request):
 
 # Booking the Ground to Play
 def booking(request):  
-    ground_list_api = "http://127.0.0.1:8000/api/ground-list?"
+    ground_list_api = "http://"+hostname+":"+port+"/api/ground-list?"
     if(request.method == "GET"):
         city = request.GET.get('city')
         area = request.GET.get('area')
@@ -161,7 +173,8 @@ def booking(request):
 
 
 def ground_detail(request, pk):
-    api = "http://127.0.0.1:8000/api/ground-list?ground_id="+pk
+    print(port)
+    api = "http://"+hostname+":"+port+"/api/ground-list?ground_id="+pk
     response = requests.get(api)
     data = response.text
     context = {}
