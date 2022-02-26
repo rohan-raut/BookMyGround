@@ -5,16 +5,17 @@ from django.shortcuts import redirect, render, HttpResponse
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-from myApp.models import city_name, area_name, sport_name, ground_registration
+from myApp.models import city_name, area_name, sport_name, ground_registration, booking
 import json
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from . serializers import area_nameSerializer, ground_registrationSerializer, city_nameSerializer, area_nameSerializer, sport_nameSerializer
+from . serializers import area_nameSerializer, ground_registrationSerializer, city_nameSerializer, area_nameSerializer, sport_nameSerializer, bookingSerializer
 from rest_framework import generics
 from django_filters.rest_framework import DjangoFilterBackend
 import requests
 import pandas as pd
+import datetime
 
 
 # global variables 
@@ -152,7 +153,7 @@ def ground_registration_func(request):
 
 
 # Booking the Ground to Play
-def booking(request):  
+def booking_func(request):  
     ground_list_api = "http://"+hostname+":"+port+"/api/ground-list?"
     if(request.method == "GET"):
         city = request.GET.get('city')
@@ -173,13 +174,33 @@ def booking(request):
 
 
 def ground_detail(request, pk):
-    print(port)
     api = "http://"+hostname+":"+port+"/api/ground-list?ground_id="+pk
     response = requests.get(api)
     data = response.text
     context = {}
     context['ground_detail'] = json.loads(data)[0]
+    context['hostname'] = hostname
+    context['port'] = port
     print(context)
+
+    # if request.GET.get('date'):
+    #     date = request.GET.get('date')
+    #     print('done with this\n')
+    
+    # if(request.method == "POST"):
+    #     print("this is post method\n")
+    #     print(request.POST.get('date'))
+
+    # if(request.method == "POST"):
+    #     print("hello")
+    #     date = request.POST['date']
+    #     booking_list_api = "http://"+hostname+":"+port+"/api/booking?ground_id="+pk+"&date="+str(date)
+    #     booking_list_api_response = requests.get(booking_list_api)
+    #     data2 = booking_list_api_response.text
+    #     json_data = json.loads(data2)
+    #     var = datetime.datetime.strptime(json_data[0]['from_time'],"%H:%M:%S").time()
+    #     print(type(var))
+    
     return render(request, 'ground_detail.html', context)
 
 # See all the booked Grounds by User
@@ -210,6 +231,11 @@ class AreaListView(generics.ListAPIView):
 class SportsListView(generics.ListAPIView):
     queryset = sport_name.objects.all()
     serializer_class = sport_nameSerializer
+
+class BookingListView(generics.ListAPIView):
+    queryset = booking.objects.all()
+    serializer_class = bookingSerializer
+    filterset_fields = ['date', 'ground_id'] 
 
 
 # SuperUser:

@@ -9,13 +9,49 @@
         <div class="col-8 bg-danger">
             <img src="{{ground_detail.ground_image}}" alt="" width="100%">
             <h1>{{ground_detail.ground_name}}</h1>
-            <form>
-                <input type="date" name="date" id="">
-                <button type="submit">Submit</button>
-            </form>
+
+            
+                <input type="date" name="date" id="date">
+                <button onclick="get_slots()">Search</button>
+            
+
+
+            <div>
+                <div id="select" onclick="change()">
+                    <input type="checkbox" name="time" id="time" value="time">
+                    <label for="time">Time</label>
+                </div>
+            </div>
+            <button type="submit">submit</button>
+
+
         </div>
     </div>
 </div>
+
+<script>
+    let hostname = "{{hostname}}";
+    let port = "{{port}}";
+    let from_time = "{{ground_detail.from_time}}";
+    let to_time = "{{ground_detail.to_time}}";
+    let pk = "{{ground_detail.ground_id}}";
+
+    function change() {
+        if (document.getElementById('time').checked == true) {
+            document.getElementById('time').checked = false;
+            console.log(document.getElementById('time').checked);
+            document.getElementById('select').style.backgroundColor = "#000000";
+        }
+        else {
+            document.getElementById('time').checked = true;
+            console.log(document.getElementById('time').checked);
+            document.getElementById('select').style.backgroundColor = "#ffffff";
+        }
+    }
+
+</script>
+
+<script src="../static/ground_detail.js"></script>
 
 
 {% endblock body %}

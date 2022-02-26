@@ -1,7 +1,7 @@
 from attr import fields
 from rest_framework import routers, serializers, viewsets
 from django.contrib.auth.models import User
-from .models import ground_registration, city_name, area_name, sport_name
+from .models import ground_registration, city_name, area_name, sport_name, booking
 
 
 # Serializers define the API representation.
@@ -26,4 +26,9 @@ class area_nameSerializer(serializers.ModelSerializer):
 class sport_nameSerializer(serializers.ModelSerializer):
     class Meta:
         model = sport_name
+        fields = "__all__"
+
+class bookingSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = booking
         fields = "__all__"

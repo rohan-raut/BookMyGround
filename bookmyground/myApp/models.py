@@ -38,6 +38,7 @@ class booking(models.Model):
     area = models.CharField(max_length=50)
     sport = models.CharField(max_length=50)
     sport_complex = models.CharField(max_length=100)
+    ground_id = models.CharField(max_length=50, default="")
     date = models.DateField()
     from_time = models.TimeField()
     to_time = models.TimeField()
