@@ -28,6 +28,21 @@ hostname = df[df["parameter"]=="hostname"].iloc[0,1]
 port = df[df["parameter"]=="port"].iloc[0,1]
 
 
+#shravnishriyash
+
+
+
+
+
+
+def profile(request):
+    return render(request, 'profile.html')
+
+
+def history(request):
+    return render(request, 'history.html')
+
+
 
 
 # Create your views here.
@@ -35,7 +50,22 @@ port = df[df["parameter"]=="port"].iloc[0,1]
 def index(request):
     return render(request, 'index.html')
 
+# rohan___
+# def loginUser(request):
+#     if(request.method == "POST"):
+#         username = request.POST['username']
+#         password = request.POST['password']
+#         user = authenticate(request, username=username, password=password)
+#         if user is not None:
+#             login(request, user)
+#             return redirect('/')
+#         else:
+#             messages.info(request, "User not found")
+#             return redirect('/login')
+#     else:
+#         return render(request, 'login.html')
 
+#shravanisrhiaysh
 def loginUser(request):
     if(request.method == "POST"):
         username = request.POST['username']
@@ -43,12 +73,40 @@ def loginUser(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
+            messages.info(request, "Logged-In Successfully!")
             return redirect('/')
         else:
             messages.info(request, "User not found")
-            return redirect('/login')
+            return redirect('/')
     else:
-        return render(request, 'login.html')
+        return render(request, 'index.html')
+
+
+
+#rohan__
+# def signupUser(request):
+#     if(request.method == "POST"):
+#         username = request.POST['username']
+#         first_name = request.POST['first_name']
+#         last_name = request.POST['last_name']
+#         email = request.POST['email']
+#         password = request.POST['password']
+#         confirm_password = request.POST['confirm_password']
+#         if(request.POST.get('is_owner')=='is_owner'):
+#             is_owner = True
+#         else:
+#             is_owner = False
+
+#         if(password == confirm_password):
+#             user = User.objects.create_user(username=username, first_name=first_name, last_name=last_name, email=email, password=password, is_staff=is_owner)
+#             user.save()
+#             messages.success(request, "Registered Successfully! Now you can Log In")
+#             return redirect('/login')
+#         else:
+#             messages.warning(request, "Password doesn't match!")
+#             return redirect('/sign-up')
+#     else:
+#         return render(request, 'signup.html')
 
 
 def signupUser(request):
@@ -59,27 +117,34 @@ def signupUser(request):
         email = request.POST['email']
         password = request.POST['password']
         confirm_password = request.POST['confirm_password']
-        if(request.POST.get('is_owner')=='is_owner'):
-            is_owner = True
-        else:
-            is_owner = False
+        # if(request.POST.get('is_owner') == 'is_owner'):
+        #     is_owner = True
+        # else:
+        #     is_owner = False
 
         if(password == confirm_password):
-            user = User.objects.create_user(username=username, first_name=first_name, last_name=last_name, email=email, password=password, is_staff=is_owner)
+            user = User.objects.create_user(username=username, first_name=first_name,
+                                            last_name=last_name, email=email, password=password) #, is_staff=is_owner
             user.save()
-            messages.success(request, "Registered Successfully! Now you can Log In")
-            return redirect('/login')
+            # messages.success(
+            #     request, "Registered Successfully! Now you can Log In")
+            user = authenticate(request, username=username, password=password)   
+            login(request, user)
+            messages.info(request, "Registered and Logged-In Successfully!")
+            return redirect('/')
         else:
             messages.warning(request, "Password doesn't match!")
-            return redirect('/sign-up')
+            return redirect('/')
     else:
-        return render(request, 'signup.html')
+        return render(request, 'index.html')
+
 
 
 def logoutUser(request):
     logout(request)
     messages.info(request, "Logged out successfully!")
-    return redirect("/login")
+    # return redirect("/login")
+    return redirect("/")
 
 
 def dashboard(request):

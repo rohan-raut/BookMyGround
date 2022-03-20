@@ -1,0 +1,301 @@
+.mainimg {
+  width: 100%;
+  /* background-size: 1200px 400px; */
+  /* height: 487px; */
+  border-radius: 0px 0px 29px 29px;
+  box-shadow: 0 3px 5px rgb(0 0 0);
+}
+
+.text {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  top: 236px;
+  left: 500px;
+}
+
+.middle {
+  text-align: center;
+  font-size: 5vh;
+  font-family: "Varela Round", sans-serif;
+  color: gray;
+  margin-top: 10px;
+}
+
+.sportsimgs {
+  display: flex;
+  margin-left: 5vh;
+  margin-right: 5vh;
+  flex-direction: row;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.sports_imgs {
+  margin: 2vh;
+  height: 30vh;
+  width: 45vh;
+  margin: 3vh;
+  border-radius: 15px;
+  box-shadow: 0 -2px 10px rgb(0 0 0);
+  transition: transform 0.2s ease-in-out;
+}
+.sports_imgs:hover {
+  -ms-transform: scale(1.1); /* IE 9 */
+  -webkit-transform: scale(1.1); /* Safari 3-8 */
+  transform: scale(1.1);
+}
+
+@media (max-width: 840px) {
+  .sports_imgs {
+    margin: 1vh;
+    height: 28vh;
+    width: 40.5vh;
+    margin: 3vh;
+    border-radius: 15px;
+    box-shadow: 0 -2px 10px rgb(0 0 0);
+  }
+}
+
+@media (max-width: 750px) {
+  .sports_imgs {
+    margin: 1vh;
+    height: 25vh;
+    width: 37.5vh;
+    margin: 2vh;
+    border-radius: 15px;
+    box-shadow: 0 -2px 10px rgb(0 0 0);
+  }
+}
+
+@media (max-width: 680px) {
+  .sports_imgs {
+    margin: 1vh;
+    height: 22vh;
+    width: 34.5vh;
+    margin: 1vh;
+    border-radius: 15px;
+    box-shadow: 0 -2px 10px rgb(0 0 0);
+  }
+}
+
+@media (max-width: 600px) {
+  .sports_imgs {
+    margin: 2vh;
+    height: 30vh;
+    width: 45vh;
+    margin: 3vh;
+    border-radius: 15px;
+    box-shadow: 0 -2px 10px rgb(0 0 0);
+  }
+}
+@media (max-width: 530px) {
+  .sports_imgs {
+    margin: 1vh;
+    height: 25vh;
+    width: 37.5vh;
+    margin: 2vh;
+    border-radius: 15px;
+    box-shadow: 0 -2px 10px rgb(0 0 0);
+  }
+}
+
+/* SEARCHBAR */
+
+/* navbar */
+
+header {
+  width: 100%;
+
+  font-family: "Red Hat Text", sans-serif;
+  font-weight: lighter;
+}
+
+.content {
+  width: 94%;
+  margin: 4em auto;
+  font-size: 20px;
+  line-height: 30px;
+  text-align: justify;
+}
+
+.logo {
+  font-family: "Red Hat Text", sans-serif;
+  line-height: 25px;
+  position: fixed;
+  float: left;
+  margin: 16px 46px;
+  color: lightgray;
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+nav {
+  position: fixed;
+  width: 100%;
+  line-height: 60px;
+  z-index: 200;
+}
+
+nav ul {
+  line-height: 25px;
+  list-style: none;
+  background: rgba(0, 0, 0, 0);
+
+  overflow: hidden;
+  color: lightgray;
+  padding: 0;
+  text-align: right;
+  margin: 0;
+  padding-right: 40px;
+  transition: 0.5s;
+}
+
+nav.black ul {
+  background: black;
+  border-bottom: 2px solid #581ce1;
+  box-shadow: 0 3px 5px rgb(0 0 0);
+}
+
+nav ul li {
+  display: inline-block;
+  padding: 9px 0px;
+}
+
+nav ul li a {
+  font-family: "Red Hat Text", sans-serif;
+  text-decoration: none;
+  color: lightgray;
+  font-size: 17px;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
+
+.menu-icon {
+  line-height: 60px;
+  width: 100%;
+  background: #000;
+  text-align: right;
+  box-sizing: border-box;
+  padding: 15px 24px;
+  cursor: pointer;
+  color: #fff;
+  display: none;
+}
+
+/* @media (max-width: 786px) {
+  .logo {
+    position: fixed;
+    top: 0;
+    margin-top: 16px;
+  }
+
+  nav ul {
+    max-height: 0px;
+    background: #000;
+  }
+
+  nav.black ul {
+    background: #000;
+  }
+
+  .showing {
+    max-height: 34em;
+  }
+
+  nav ul li {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 24px;
+    text-align: center;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+} */
+
+/* .btn-outline-success {
+  color: #581ce1;
+  border-color: #581ce1;
+}  */
+
+.modal-content {
+  background-color: transparent;
+}
+
+/* The dropdown container */
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+}
+
+/* Add a red background color to navbar links on hover */
+.navbar a:hover,
+.dropdown:hover .dropbtn {
+  background-color: green;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* message alert */
+.alert {
+  border-radius: 2.25rem;
+  margin-top: 1rem;
+  box-shadow: 0 8px 10px rgb(0 0 0);
+}
+
+/* nav link white hover */
+a:hover {
+  color: white;
+}
+
+.nav-link {
+  display: block;
+  padding: 0.5rem 0rem;
+}
+
+
+
+
+

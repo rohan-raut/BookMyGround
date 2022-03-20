@@ -1,0 +1,279 @@
+
+    {% extends 'base.html' %}
+    {% block title %}Profile{% endblock title %}
+    {% block customcss %}"./static/home.css"{% endblock customcss %}
+    {% block customcss2 %}"./static/history.css"{% endblock customcss2 %}
+
+    {% block body %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    
+    <div class="wrapper">
+      <header>
+         <nav>
+            <div class="menu-icon">
+               <i class="fa fa-bars fa-2x"></i>
+            </div>
+            <a href="/">
+            <div class="logo">
+               BookMyGround
+            </div>
+           </a>
+            <div class="menu">
+               <ul>
+                  {% if request.user.is_anonymous %}
+                  <li>
+                     <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
+                        data-bs-target="#signupmodal">
+                        Sign Up
+                     </button>
+                     
+                  </li>
+                 
+                  {% else %}
+                  <li>
+                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                       Welcome {{request.user}}
+                     </a>
+                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                       <a class="dropdown-item" href="/profile">Profile</a>
+                       <a class="dropdown-item" href="/history">History</a>
+                       <div class="dropdown-divider"></div>
+                       <a class="dropdown-item" href="logout">Log Out</a>
+                     </div>
+                   </li>
+   
+                  {% endif %}
+               </ul>
+            </div>
+         </nav>
+         
+   
+      </header>
+   </div>
+
+
+  <div  class= "heading" style="padding-top: 80px;">Booking History
+    
+  </div>
+
+
+
+
+
+
+    <div class="history_items" style="padding-top: 20px;">
+      <div class="history_list" > 
+        <div class="card card-stepper" style="border-radius: 16px; width: 400px;height: 350px;">
+          <div class="card-header p-4">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <p class="text-muted mb-2"> Booking ID <span class="fw-bold text-body">1222528743</span></p>
+                <p class="text-muted mb-0"> Booked On <span class="fw-bold text-body">12,March 2019</span> </p>
+                
+              </div>
+
+            </div>
+          </div>
+          <div class="card-body p-4">
+            <div class="d-flex flex-row mb-4 pb-2">
+              <div class="flex-fill">
+                <h5 class="bold">Balgandharva Swimming Pool</h5>
+                <p class="text-muted"> JM Road</p>
+                <h4 class="mb-3"> Rs. 1000</h4>
+                <p class="text-muted mb-2 ">Time: 1pm - 2pm</p>
+                <p class="text-muted">Status: Completed</p>
+              </div>
+              <div>
+                <img class="align-self-center img-fluid" src="../static/home/pool.webp" width="250"
+                  style="border-radius: 16px;">
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+      <div class="history_list" > 
+        <div class="card card-stepper" style="border-radius: 16px; width: 400px;height: 350px;">
+          <div class="card-header p-4">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <p class="text-muted mb-2"> Booking ID <span class="fw-bold text-body">1222528743</span></p>
+                <p class="text-muted mb-0"> Booked On <span class="fw-bold text-body">12,March 2019</span> </p>
+              </div>
+
+            </div>
+          </div>
+          <div class="card-body p-4">
+            <div class="d-flex flex-row mb-4 pb-2">
+              <div class="flex-fill">
+                <h5 class="bold">Balgandharva Swimming Pool</h5>
+                <p class="text-muted"> JM Road</p>
+                <h4 class="mb-3"> Rs. 1000</h4>
+                <p class="text-muted mb-2">Time: 1pm - 2pm</p>
+                <p class="text-muted" >Status: Completed</p>
+              </div>
+              <div>
+                <img class="align-self-center img-fluid" src="../static/home/pool.webp" width="250"
+                  style="border-radius: 16px;">
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="history_list" > 
+        <div class="card card-stepper" style="border-radius: 16px; width: 400px;height: 350px;">
+          <div class="card-header p-4">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <p class="text-muted mb-2"> Booking ID <span class="fw-bold text-body">1222528743</span></p>
+                <p class="text-muted mb-0"> Booked On <span class="fw-bold text-body">12,March 2019</span> </p>
+              </div>
+
+            </div>
+          </div>
+          <div class="card-body p-4">
+            <div class="d-flex flex-row mb-4 pb-2">
+              <div class="flex-fill">
+                <h5 class="bold">Balgandharva Swimming Pool</h5>
+                <p class="text-muted"> JM Road</p>
+                <h4 class="mb-3"> Rs. 1000</h4>
+                <p class="text-muted mb-2">Time: 1pm - 2pm</p>
+                <p class="text-muted">Status: Completed</p>
+              </div>
+              <div>
+                <img class="align-self-center img-fluid" src="../static/home/pool.webp" width="250"
+                  style="border-radius: 16px;">
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="history_list" > 
+        <div class="card card-stepper" style="border-radius: 16px; width: 400px;height: 350px;">
+          <div class="card-header p-4">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <p class="text-muted mb-2"> Booking ID <span class="fw-bold text-body">1222528743</span></p>
+                <p class="text-muted mb-0"> Booked On <span class="fw-bold text-body">12,March 2019</span> </p>
+              </div>
+
+            </div>
+          </div>
+          <div class="card-body p-4">
+            <div class="d-flex flex-row mb-4 pb-2">
+              <div class="flex-fill">
+                <h5 class="bold">Balgandharva Swimming Pool</h5>
+                <p class="text-muted"> JM Road</p>
+                <h4 class="mb-3"> Rs. 1000</h4>
+                <p class="text-muted mb-2">Time: 1pm - 2pm</p>
+                <p class="text-muted">Status: Completed</p>
+              </div>
+              <div>
+                <img class="align-self-center img-fluid" src="../static/home/pool.webp" width="250"
+                  style="border-radius: 16px;">
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="history_list" > 
+        <div class="card card-stepper" style="border-radius: 16px; width: 400px;height: 350px;">
+          <div class="card-header p-4">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <p class="text-muted mb-2"> Booking ID <span class="fw-bold text-body">1222528743</span></p>
+                <p class="text-muted mb-0"> Booked On <span class="fw-bold text-body">12,March 2019</span> </p>
+              </div>
+
+            </div>
+          </div>
+          <div class="card-body p-4">
+            <div class="d-flex flex-row mb-4 pb-2">
+              <div class="flex-fill">
+                <h5 class="bold">Balgandharva Swimming Pool</h5>
+                <p class="text-muted"> JM Road</p>
+                <h4 class="mb-3"> Rs. 1000</h4>
+                <p class="text-muted mb-2">Time: 1pm - 2pm</p>
+                <p class="text-muted">Status: Completed</p>
+              </div>
+              <div>
+                <img class="align-self-center img-fluid" src="../static/home/pool.webp" width="250"
+                  style="border-radius: 16px;">
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="history_list" > 
+        <div class="card card-stepper" style="border-radius: 16px; width: 400px;height: 350px;">
+          <div class="card-header p-4">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <p class="text-muted mb-2"> Booking ID <span class="fw-bold text-body">1222528743</span></p>
+                <p class="text-muted mb-0"> Booked On <span class="fw-bold text-body">12,March 2019</span> </p>
+              </div>
+
+            </div>
+          </div>
+          <div class="card-body p-4">
+            <div class="d-flex flex-row mb-4 pb-2">
+              <div class="flex-fill">
+                <h5 class="bold">Balgandharva Swimming Pool</h5>
+                <p class="text-muted"> JM Road</p>
+                <h4 class="mb-3"> Rs. 1000</h4>
+                <p class="text-muted mb-2">Time: 1pm - 2pm</p>
+                <p class="text-muted">Status: Completed</p>
+              </div>
+              <div>
+                <img class="align-self-center img-fluid" src="../static/home/pool.webp" width="250"
+                  style="border-radius: 16px;">
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    
+    </div>
+
+
+    {% endblock body %}
+
+
+
+
+
+
+
+
+
+
+
+
+

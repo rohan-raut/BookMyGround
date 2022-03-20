@@ -16,6 +16,9 @@ urlpatterns = [
     path('api/cities', views.CityListView.as_view()),
     path('api/areas', views.AreaListView.as_view()),
     path('api/sports', views.SportsListView.as_view()),
-    path('api/booking', views.BookingListView.as_view())
+    path('api/booking', views.BookingListView.as_view()),
+    # path("sign", views.sign, name="sign"),
+    path("profile", views.profile, name="profile"),
+    path("history", views.history, name="history")
 
 ]

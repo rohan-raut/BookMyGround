@@ -1,16 +1,14 @@
 
-.navbar-brand{
-    color: white;
-    font-family: 'Red Hat Text', sans-serif;
+/* .navbar-brand:hover {
+  color: white;
 }
-.navbar-brand:hover{
-    color: white;
-}
-.navbar{
-    border-bottom: 2px solid #581CE1;
-}
+.navbar {
+  background-attachment: sticky;
+  border-bottom: 2px solid #581ce1;
+} */
 
-body{
-    background-color: #101010;
-    color: white;
+body {
+  background-color: rgb(32,32,32);
+  color: white;
+  margin: 0;
 }
