@@ -1,4 +1,4 @@
-from attr import fields
+# from attr import fields
 from rest_framework import routers, serializers, viewsets
 from django.contrib.auth.models import User
 from .models import ground_registration, city_name, area_name, sport_name, booking

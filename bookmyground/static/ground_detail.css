@@ -12,8 +12,22 @@ input[type="checkbox"]  {
  }
 
 
- #select{
-     display: inline-block;
-     padding:5px;
-     margin: 5px 10px;
- }
+#select{
+    display: inline-block;
+    padding:5px;
+    margin: 5px 10px;
+}
+
+
+#slots{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.slot{
+    background-color: green;
+    margin: 5px 9px;
+    border: 2px solid black;
+}
